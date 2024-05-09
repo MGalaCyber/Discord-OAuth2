@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "target": "es5",
+        "module": "commonjs",
+        "strict": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "declaration": true,
+        "outDir": "./src",
+        "rootDir": "./src",
+        "sourceMap": true,
+        "removeComments": true,
+        "forceConsistentCasingInFileNames": true
+    },
+    "include": ["src/**/*.ts", "typings/**/*.d.ts", "typings/index.d.ts"],
+    "exclude": ["node_modules"]
+}
