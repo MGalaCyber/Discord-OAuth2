@@ -4,7 +4,7 @@ import {
     AddGuildMemberParams,
     AddGroupMemberParams,
     PushUserMetaDataParams,
-    RegisterUserMetaDataParams,
+    RegisterMetaDataParams,
 } from "../utils/Constants";
 import {
     GenerateOAuth2Url,
@@ -29,13 +29,14 @@ export class DiscordOAuth2 {
     private redirectUri: string;
 
     /**
-     * Generates OAuth URL based on provided options.
-     * @param {GenerateOAuth2UrlParams} options - Options for generating OAuth URL.
+     * Generate a oauth2 URL.
+     * @param {GenerateOAuth2Url} options - Options for generating OAuth URL.
      * @param {Object} options - Options for generating OAuth URL.
-     * @param {string} options.responseType - The response type.
+     * @param {string} options.state - The state type.
      * @param {string[]} options.scope - The scope of authorization.
      * @param {string} options.prompt - The prompt type.
-     * @param {number} [options.integrationType] - The installation context. Choose between "GuildInstall" or "UserInstall".
+     * @param {string} options.responseType - The response type.
+     * @param {number} options.integrationType - The installation context. Choose between "GuildInstall" or "UserInstall".
      * @returns {Promise<GenerateOAuth2Url>} - A promise that resolves with the generated OAuth URL.
      */
     public GenerateOAuth2Url(options: GenerateOAuth2UrlParams): Promise<GenerateOAuth2Url>;
@@ -79,6 +80,9 @@ export class DiscordOAuth2 {
         /**
          * Retrieves user guild member based on provided access token and guild member parameters.
          * @param {GuildMemberParams} options - Options for retrieving user guild member.
+         * @param {Object} options - Options for retrieving user guild member.
+         * @param {string} options.accessToken - The access token.
+         * @param {string} options.guildId - The guild ID.
          * @returns {Promise<UserGuildMember>} - A promise that resolves with the user guild member.
          */
         GetUserGuildMember(options: GuildMemberParams): Promise<UserGuildMember>;
@@ -88,6 +92,15 @@ export class DiscordOAuth2 {
         /**
          * Adds a guild member based on provided options.
          * @param {AddGuildMemberParams} options - Options for adding a guild member.
+         * @param {Object} options - Options for adding a guild member.
+         * @param {string} options.accessToken - The access token.
+         * @param {string} options.params.guildId - The guild ID.
+         * @param {string} options.params.userId - The user ID.
+         * @param {Object} [options.body] - Additional data for the guild member.
+         * @param {string} [options.body.nick] - The nickname.
+         * @param {string[]} [options.body.roles] - The roles.
+         * @param {boolean} [options.body.mute] - Mute status.
+         * @param {boolean} [options.body.deaf] - Deaf status.
          * @returns {Promise<any>} - A promise that resolves when the guild member is added.
          */
         AddGuildMember(options: AddGuildMemberParams): Promise<any>;
@@ -95,6 +108,12 @@ export class DiscordOAuth2 {
         /**
          * Adds a group member based on provided options.
          * @param {AddGroupMemberParams} options - Options for adding a group member.
+         * @param {Object} options - Options for adding a group member.
+         * @param {string} options.accessToken - The access token.
+         * @param {string} options.params.groupId - The group ID.
+         * @param {string} options.params.userId - The user ID.
+         * @param {Object} [options.body] - Additional data for the group member.
+         * @param {string} [options.body.nick] - The nickname.
          * @returns {Promise<any>} - A promise that resolves when the group member is added.
          */
         AddGroupMember(options: AddGroupMemberParams): Promise<any>;
@@ -111,15 +130,26 @@ export class DiscordOAuth2 {
         /**
          * Pushes user metadata based on provided options.
          * @param {PushUserMetaDataParams} options - Options for pushing user metadata.
+         * @param {Object} options - Options for pushing user metadata.
+         * @param {string} options.refreshToken - The refresh token.
+         * @param {Object} options.body - Metadata to push.
+         * @param {string} options.body.platformName - The platform name.
+         * @param {object} options.body.metaData - The metadata.
          * @returns {Promise<any>} - A promise that resolves when the user metadata is pushed.
          */
         PushUserMetaData(options: PushUserMetaDataParams): Promise<any>;
 
         /**
          * Registers user metadata based on provided options.
-         * @param {RegisterUserMetaDataParams} options - Options for registering user metadata.
+         * @param {RegisterMetaDataParams} options - Options for registering user metadata.
+         * @param {string[]} options - Options for registering user metadata.
+         * @param {Object} options.body - Metadata to register.
+         * @param {string} options.body.key - The key.
+         * @param {string} options.body.name - The name.
+         * @param {string} options.body.description - The description.
+         * @param {number} options.body.type - The type.
          * @returns {Promise<any>} - A promise that resolves when the user metadata is registered.
          */
-        RegisterUserMetaData(options: RegisterUserMetaDataParams): Promise<any>;
+        RegisterMetaData(options: RegisterMetaDataParams): Promise<any>;
     };
 }

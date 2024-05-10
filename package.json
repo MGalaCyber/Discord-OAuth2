@@ -1,7 +1,7 @@
 {
   "name": "@mgalacyber/discord-oauth2",
   "version": "1.0.0",
-  "description": "Discord Oauth2",
+  "description": "Discord OAuth2 simplifies user authentication and profile management for Discord-integrated applications.",
   "main": "index.js",
   "typings": "typings/index.d.ts",
   "scripts": {
@@ -9,23 +9,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MGalaCyber/discord-oauth2.git"
+    "url": "git+https://github.com/MGalaCyber/Discord-OAuth2.git"
   },
   "keywords": [
-    "Oauth2",
+    "OAuth2",
     "Discord",
-    "discord-oauth2",
-    "auth",
-    "connection"
+    "authentication",
+    "authorization",
+    "profile",
+    "management",
+    "integration"
   ],
   "author": "MGalaCyber",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/MGalaCyber/discord-oauth2/issues"
+    "url": "https://github.com/MGalaCyber/Discord-OAuth2/issues"
   },
-  "homepage": "https://github.com/MGalaCyber/discord-oauth2#readme",
+  "homepage": "https://github.com/MGalaCyber/Discord-OAuth2#readme",
   "dependencies": {
     "@mgalacyber/package-notifier": "^1.0.1",
-    "node-fetch": "^3.3.2"
+    "undici": "^6.16.0"
   }
 }
