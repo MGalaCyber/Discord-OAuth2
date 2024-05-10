@@ -1,5 +1,5 @@
 import {
-    GenerateOauthUrlParams,
+    GenerateOAuth2UrlParams,
     GuildMemberParams,
     AddGuildMemberParams,
     AddGroupMemberParams,
@@ -7,7 +7,7 @@ import {
     RegisterUserMetaDataParams,
 } from "../utils/Constants";
 import {
-    GenerateOauthUrl,
+    GenerateOAuth2Url,
     AuthorizationToken,
     UserProfile,
     UserGuilds,
@@ -15,7 +15,7 @@ import {
     UserGuildMember,
 } from "../utils/Results";
 
-export class DiscordOauth2 {
+export class DiscordOAuth2 {
     public constructor({ clientId, clientSecret, clientToken, redirectUri }: {
         clientId: string;
         clientSecret: string;
@@ -30,15 +30,15 @@ export class DiscordOauth2 {
 
     /**
      * Generates OAuth URL based on provided options.
-     * @param {GenerateOauthUrlParams} options - Options for generating OAuth URL.
+     * @param {GenerateOAuth2UrlParams} options - Options for generating OAuth URL.
      * @param {Object} options - Options for generating OAuth URL.
      * @param {string} options.responseType - The response type.
      * @param {string[]} options.scope - The scope of authorization.
      * @param {string} options.prompt - The prompt type.
      * @param {number} [options.integrationType] - The installation context. Choose between "GuildInstall" or "UserInstall".
-     * @returns {Promise<GenerateOauthUrl>} - A promise that resolves with the generated OAuth URL.
+     * @returns {Promise<GenerateOAuth2Url>} - A promise that resolves with the generated OAuth URL.
      */
-    public GenerateOauthUrl(options: GenerateOauthUrlParams): Promise<GenerateOauthUrl>;
+    public GenerateOAuth2Url(options: GenerateOAuth2UrlParams): Promise<GenerateOAuth2Url>;
 
     /**
      * Retrieves access token based on provided callback code.
@@ -67,14 +67,14 @@ export class DiscordOauth2 {
          * @param {string} accessToken - The access token.
          * @returns {Promise<UserGuilds>} - A promise that resolves with the user guilds.
          */
-        GetUserGuild(accessToken: string): Promise<UserGuilds>;
+        GetUserGuilds(accessToken: string): Promise<UserGuilds>;
 
         /**
          * Retrieves user connections based on provided access token.
          * @param {string} accessToken - The access token.
          * @returns {Promise<UserConnections>} - A promise that resolves with the user connections.
          */
-        GetUserConnection(accessToken: string): Promise<UserConnections>;
+        GetUserConnections(accessToken: string): Promise<UserConnections>;
 
         /**
          * Retrieves user guild member based on provided access token and guild member parameters.

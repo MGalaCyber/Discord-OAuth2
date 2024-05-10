@@ -1,4 +1,4 @@
-export interface GenerateOauthUrl {
+export interface GenerateOAuth2Url {
     state: string;
     url: string;
 }

@@ -42,7 +42,7 @@ export enum MetaDataTypes {
  * @param {string} options.prompt - The prompt type.
  * @param {number} [options.integrationType] - The installation context. Choose between "GuildInstall" or "UserInstall".
  */
-export interface GenerateOauthUrlParams {
+export interface GenerateOAuth2UrlParams {
     scope: readonly Scopes[],
     prompt?: PromptTypes,
     responseCode?: ResponseCodeTypes,

@@ -39,7 +39,7 @@ const MetaDataTypes = {
     BooleanNotEqual: 8,
 };
 
-class DiscordOauth2 {
+class DiscordOAuth2 {
     constructor({clientId, clientSecret, clientToken, redirectUri}) {
         this.clientId = clientId ? clientId : "";
         this.clientSecret = clientSecret ? clientSecret : "";
@@ -47,7 +47,7 @@ class DiscordOauth2 {
         this.redirectUri = redirectUri ? redirectUri : "";
     };
 
-    GenerateOauthUrl({ responseCode, scope, prompt, integrationType }) {
+    GenerateOAuth2Url({ responseCode, scope, prompt, integrationType }) {
         return new Promise((resolve, reject) => {
             const genState = Crypto.randomUUID();
             const genParams = new URLSearchParams({
@@ -168,7 +168,7 @@ class DiscordOauth2 {
                     return resolve(formatResult);
                 });
             },
-            GetUserGuild(accessToken) {
+            GetUserGuilds(accessToken) {
                 return new Promise(async (resolve, reject) => {
                     const getResponse = await Fetch("https://discord.com/api/users/@me/guilds", {
                         method: "GET",
@@ -192,7 +192,7 @@ class DiscordOauth2 {
                     return resolve(formatResult);
                 });
             },
-            GetUserConnection(accessToken) {
+            GetUserConnections(accessToken) {
                 return new Promise(async (resolve, reject) => {
                     const getResponse = await Fetch("https://discord.com/api/users/@me/connections", {
                         method: "GET",
@@ -363,4 +363,4 @@ class DiscordOauth2 {
     };
 };
 
-module.exports = { DiscordOauth2, Scopes, ResponseCodeTypes, PromptTypes, IntegrationTypes, MetaDataTypes };
+module.exports = { DiscordOAuth2, Scopes, ResponseCodeTypes, PromptTypes, IntegrationTypes, MetaDataTypes };
