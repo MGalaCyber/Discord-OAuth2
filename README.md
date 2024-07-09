@@ -125,8 +125,8 @@ oauth2.UserDataSchema.GetUserProfile(accessToken).then((result) => {
     //     accentColor: number,
     //     globalName: string,
     //     avatarDecorationData: {
-    //     asset: string,
-    //     skuId: string,
+    //         asset: string,
+    //         skuId: string,
     //     },
     //     bannerColor: string,
     //     clan: string,
@@ -320,4 +320,5 @@ oauth2.LinkedRolesSchema.RegisterMetaData([
 ## Bugs, glitches and issues
 If you encounter any problems feel free to open an issue in our
 - [GitHub Repository](https://github.com/MGalaCyber/Discord-OAuth2/issues)
+- [Telegram Group](https://t.me/GalaxyUniverseOfficial)
 - [Discord Server](https://discord.gg/uESnRWjEwv)
