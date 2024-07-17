@@ -1,6 +1,6 @@
 {
   "name": "@mgalacyber/discord-oauth2",
-  "version": "1.9.0",
+  "version": "1.9.2",
   "description": "Discord OAuth2 simplifies user authentication and profile management for Discord-integrated applications.",
   "main": "index.js",
   "typings": "typings/index.d.ts",
