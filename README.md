@@ -127,6 +127,7 @@ oauth2.UserDataSchema.GetUserProfile(accessToken).then((result) => {
     //     avatarDecorationData: {
     //         asset: string,
     //         skuId: string,
+    //         expiresAt: string,
     //     },
     //     bannerColor: string,
     //     clan: string,
