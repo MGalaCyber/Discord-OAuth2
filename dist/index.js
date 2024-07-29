@@ -131,7 +131,7 @@ class DiscordOAuth2 {
                 if (body.mute !== undefined && typeof body.mute !== "boolean") throw new Error("Invalid parameter types: body.mute must be boolean");
                 if (body.deaf !== undefined && typeof body.deaf !== "boolean") throw new Error("Invalid parameter types: body.deaf must be boolean");
 
-                return DiscordApis.AddGuildMember(this.clientId, this.clientSecret, this.clientToken, this.redirectUri, { accessToken, guildId, userId, body });
+                return DiscordApis.AddGuildMember(this.clientId, this.clientSecret, this.clientToken, this.redirectUri, { accessToken, params: { guildId, userId }, body: { nick, roles, mute, deaf } });
             },
             AddGroupMember({ accessToken, params = { groupId, userId }, body = { nick: "" } }) {
                 if (!accessToken) throw new Error("Missing required parameters: accessToken");
@@ -145,7 +145,7 @@ class DiscordOAuth2 {
                 if (body !== undefined && typeof body !== "object") throw new Error("Invalid parameter type: body must be an object");
                 if (body.nick !== undefined && typeof body.nick !== "string") throw new Error("Invalid parameter type: body.nick must be a string");
 
-                return DiscordApis.AddGroupMember(this.clientId, this.clientSecret, this.clientToken, this.redirectUri, { accessToken, groupId, userId, body });
+                return DiscordApis.AddGroupMember(this.clientId, this.clientSecret, this.clientToken, this.redirectUri, { accessToken, params: { groupId, userId }, body: { nick } });
             },
         };
     };
@@ -168,7 +168,7 @@ class DiscordOAuth2 {
                 if (typeof body.platformName !== "string") throw new Error("Invalid parameter types: body.platformName must be string");
                 if (typeof body.metaData !== "object") throw new Error("Invalid parameter types: metaData must be objects");
 
-                return DiscordApis.PushMetaData(this.clientId, this.clientSecret, this.clientToken, this.redirectUri, { refreshToken, platformName: body.platformName, metaData: body.metaData });
+                return DiscordApis.PushMetaData(this.clientId, this.clientSecret, this.clientToken, this.redirectUri, { refreshToken, body: { platformName, metaData } });
             },
             RegisterMetaData(metaDataArray) {
                 if (!metaDataArray) throw new Error("Missing required parameter: metaDataArray");
