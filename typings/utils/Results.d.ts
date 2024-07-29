@@ -22,8 +22,9 @@ export interface UserProfile {
     accentColor: number;
     globalName: string;
     avatarDecorationData: {
-      asset: string;
-      skuId: string;
+        asset: string;
+        skuId: string;
+        expiresAt: string;
     };
     bannerColor: string;
     clan: string;
